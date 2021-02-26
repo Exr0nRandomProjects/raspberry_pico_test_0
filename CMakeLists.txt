@@ -9,13 +9,14 @@ project(my_project)
 # initialize the Raspberry Pi Pico SDK
 pico_sdk_init()
 
-add_executable(hello_world
-    hello_world.c
+add_executable(my_proj
+    #hello_world.c
+    main.c
 )
 
 # Add pico_stdlib library which aggregates commonly used features
-target_link_libraries(hello_world pico_stdlib)
+target_link_libraries(my_proj pico_stdlib)
 
 # create map/bin/hex/uf2 file in addition to ELF.
-pico_add_extra_outputs(hello_world)
+pico_add_extra_outputs(my_proj)
 

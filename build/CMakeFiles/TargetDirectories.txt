@@ -1,7 +1,7 @@
 /home/exr0n/snap/raspberrypi_pico/test_proj/build/CMakeFiles/rebuild_cache.dir
 /home/exr0n/snap/raspberrypi_pico/test_proj/build/CMakeFiles/edit_cache.dir
 /home/exr0n/snap/raspberrypi_pico/test_proj/build/CMakeFiles/ELF2UF2Build.dir
-/home/exr0n/snap/raspberrypi_pico/test_proj/build/CMakeFiles/hello_world.dir
+/home/exr0n/snap/raspberrypi_pico/test_proj/build/CMakeFiles/my_proj.dir
 /home/exr0n/snap/raspberrypi_pico/test_proj/build/pico-sdk/CMakeFiles/rebuild_cache.dir
 /home/exr0n/snap/raspberrypi_pico/test_proj/build/pico-sdk/CMakeFiles/edit_cache.dir
 /home/exr0n/snap/raspberrypi_pico/test_proj/build/pico-sdk/tools/CMakeFiles/rebuild_cache.dir

@@ -143,17 +143,17 @@ ELF2UF2Build/fast:
 .PHONY : ELF2UF2Build/fast
 
 #=============================================================================
-# Target rules for targets named hello_world
+# Target rules for targets named my_proj
 
 # Build rule for target.
-hello_world: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hello_world
-.PHONY : hello_world
+my_proj: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_proj
+.PHONY : my_proj
 
 # fast build rule for target.
-hello_world/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/build
-.PHONY : hello_world/fast
+my_proj/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/build
+.PHONY : my_proj/fast
 
 #=============================================================================
 # Target rules for targets named bs2_default_padded_checksummed_asm
@@ -194,40 +194,13 @@ bs2_default/fast:
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/build
 .PHONY : bs2_default/fast
 
-hello_world.obj: hello_world.c.obj
-
-.PHONY : hello_world.obj
-
-# target to build an object file
-hello_world.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/hello_world.c.obj
-.PHONY : hello_world.c.obj
-
-hello_world.i: hello_world.c.i
-
-.PHONY : hello_world.i
-
-# target to preprocess a source file
-hello_world.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/hello_world.c.i
-.PHONY : hello_world.c.i
-
-hello_world.s: hello_world.c.s
-
-.PHONY : hello_world.s
-
-# target to generate assembly for a file
-hello_world.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/hello_world.c.s
-.PHONY : hello_world.c.s
-
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.obj
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.i
@@ -236,7 +209,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.s
@@ -245,7 +218,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
@@ -254,7 +227,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.obj: ho
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.i
@@ -263,7 +236,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.i: home
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.s
@@ -272,7 +245,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.s: home
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/lock_core.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.obj
@@ -281,7 +254,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.obj: home/e
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.i
@@ -290,7 +263,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.i: home/exr
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.s
@@ -299,7 +272,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.s: home/exr
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/mutex.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.obj
@@ -308,7 +281,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.obj: home/exr
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.i
@@ -317,7 +290,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.i: home/exr0n
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.s
@@ -326,7 +299,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.s: home/exr0n
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/sem.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.obj
@@ -335,7 +308,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.obj: home/ex
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.i
@@ -344,7 +317,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.i: home/exr0
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.s
@@ -353,7 +326,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.s: home/exr0
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/time.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
@@ -362,7 +335,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.ob
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
@@ -371,7 +344,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.i:
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
@@ -380,7 +353,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.s:
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.obj
@@ -389,7 +362,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.obj: hom
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.i
@@ -398,7 +371,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.i: home/
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.s
@@ -407,7 +380,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.s: home/
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/datetime.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.obj
@@ -416,7 +389,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.obj: home/e
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.i
@@ -425,7 +398,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.i: home/exr
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.s
@@ -434,7 +407,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.s: home/exr
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/pheap.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.obj
@@ -443,7 +416,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.obj: home/e
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.i
@@ -452,7 +425,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.i: home/exr
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.s
@@ -461,7 +434,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.s: home/exr
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_util/queue.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
@@ -470,7 +443,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.ob
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
@@ -479,7 +452,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.i:
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
@@ -488,7 +461,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.s:
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
@@ -497,7 +470,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
@@ -506,7 +479,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
@@ -515,7 +488,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_divider/divider.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
@@ -524,7 +497,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_divider/divide
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
@@ -533,7 +506,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj:
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
@@ -542,7 +515,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: h
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
@@ -551,7 +524,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: h
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
@@ -560,7 +533,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj: h
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
@@ -569,7 +542,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.i: hom
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
@@ -578,7 +551,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.s: hom
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
@@ -587,7 +560,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq_handle
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
@@ -596,7 +569,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj: h
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
@@ -605,7 +578,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.i: hom
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
@@ -614,7 +587,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.s: hom
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
@@ -623,7 +596,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj:
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
@@ -632,7 +605,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.i: h
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
@@ -641,7 +614,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.s: h
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
@@ -650,7 +623,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.ob
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
@@ -659,7 +632,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.i:
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
@@ -668,7 +641,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.s:
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
@@ -677,7 +650,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.obj:
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
@@ -686,7 +659,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.i: h
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
@@ -695,7 +668,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.s: h
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
@@ -704,7 +677,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj:
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
@@ -713,7 +686,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: h
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
@@ -722,7 +695,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: h
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
@@ -731,7 +704,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watch
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
@@ -740,7 +713,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watch
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
@@ -749,7 +722,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watch
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
@@ -758,7 +731,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj:
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
@@ -767,7 +740,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: h
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
@@ -776,7 +749,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: h
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
@@ -785,7 +758,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_ae
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
@@ -794,7 +767,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.ob
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
@@ -803,7 +776,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i:
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
@@ -812,7 +785,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s:
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
@@ -821,7 +794,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_divider/divider.ob
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
@@ -830,7 +803,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_aeab
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
@@ -839,7 +812,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
@@ -848,7 +821,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
@@ -857,7 +830,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
@@ -866,7 +839,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
@@ -875,7 +848,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
@@ -884,7 +857,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
@@ -893,7 +866,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_v1_r
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
@@ -902,7 +875,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
@@ -911,7 +884,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_r
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
@@ -920,7 +893,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_r
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
@@ -929,7 +902,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_r
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
@@ -938,7 +911,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.o
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
@@ -947,7 +920,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.i
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
@@ -956,7 +929,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.s
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
@@ -965,7 +938,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
@@ -974,7 +947,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
@@ -983,7 +956,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
@@ -992,7 +965,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
@@ -1001,7 +974,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
@@ -1010,7 +983,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_ae
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
@@ -1019,7 +992,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
@@ -1028,7 +1001,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
@@ -1037,7 +1010,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
@@ -1046,7 +1019,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.obj:
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
@@ -1055,7 +1028,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.i: h
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
@@ -1064,7 +1037,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.s: h
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
@@ -1073,7 +1046,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.ob
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
@@ -1082,7 +1055,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.i:
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
@@ -1091,7 +1064,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.s:
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
@@ -1100,7 +1073,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/bina
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
@@ -1109,7 +1082,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/bina
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
@@ -1118,7 +1091,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/bina
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
@@ -1127,7 +1100,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/crt0
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
@@ -1136,7 +1109,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
@@ -1145,7 +1118,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
@@ -1154,7 +1127,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
@@ -1163,7 +1136,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: h
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
@@ -1172,7 +1145,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i: hom
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
@@ -1181,7 +1154,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s: hom
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
@@ -1190,7 +1163,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_u
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
@@ -1199,7 +1172,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_u
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
@@ -1208,7 +1181,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_u
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
@@ -1217,7 +1190,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj:
 
 # target to build an object file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
@@ -1226,7 +1199,7 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: h
 
 # target to preprocess a source file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
@@ -1235,8 +1208,35 @@ home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: h
 
 # target to generate assembly for a file
 home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_world.dir/build.make CMakeFiles/hello_world.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 .PHONY : home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+
+main.obj: main.c.obj
+
+.PHONY : main.obj
+
+# target to build an object file
+main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/main.c.obj
+.PHONY : main.c.obj
+
+main.i: main.c.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_proj.dir/build.make CMakeFiles/my_proj.dir/main.c.s
+.PHONY : main.c.s
 
 # Help Target
 help:
@@ -1250,10 +1250,7 @@ help:
 	@echo "... bs2_default_bin"
 	@echo "... bs2_default_padded_checksummed_asm"
 	@echo "... bs2_default"
-	@echo "... hello_world"
-	@echo "... hello_world.obj"
-	@echo "... hello_world.i"
-	@echo "... hello_world.s"
+	@echo "... my_proj"
 	@echo "... home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.obj"
 	@echo "... home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.i"
 	@echo "... home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/pico_sync/critical_section.s"
@@ -1367,6 +1364,9 @@ help:
 	@echo "... home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj"
 	@echo "... home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i"
 	@echo "... home/exr0n/snap/raspberrypi_pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s"
+	@echo "... main.obj"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

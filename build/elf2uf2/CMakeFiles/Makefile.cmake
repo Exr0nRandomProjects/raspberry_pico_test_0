@@ -9,9 +9,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "/home/exr0n/snap/raspberrypi_pico/pico-sdk/src/common/boot_uf2/CMakeLists.txt"
   "/home/exr0n/snap/raspberrypi_pico/pico-sdk/tools/elf2uf2/CMakeLists.txt"
-  "CMakeFiles/3.19.4/CMakeCCompiler.cmake"
-  "CMakeFiles/3.19.4/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.19.4/CMakeSystem.cmake"
+  "CMakeFiles/3.19.6/CMakeCCompiler.cmake"
+  "CMakeFiles/3.19.6/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.19.6/CMakeSystem.cmake"
   "/usr/share/cmake-3.19/Modules/CMakeCCompiler.cmake.in"
   "/usr/share/cmake-3.19/Modules/CMakeCCompilerABI.c"
   "/usr/share/cmake-3.19/Modules/CMakeCInformation.cmake"
@@ -39,7 +39,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.19/Modules/CMakeTestCCompiler.cmake"
   "/usr/share/cmake-3.19/Modules/CMakeTestCXXCompiler.cmake"
   "/usr/share/cmake-3.19/Modules/CMakeTestCompilerCommon.cmake"
-  "/usr/share/cmake-3.19/Modules/CMakeUnixFindMake.cmake"
   "/usr/share/cmake-3.19/Modules/Compiler/ADSP-DetermineCompiler.cmake"
   "/usr/share/cmake-3.19/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
   "/usr/share/cmake-3.19/Modules/Compiler/ARMClang-DetermineCompiler.cmake"
@@ -105,11 +104,11 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.19.4/CMakeSystem.cmake"
-  "CMakeFiles/3.19.4/CMakeCCompiler.cmake"
-  "CMakeFiles/3.19.4/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.19.4/CMakeCCompiler.cmake"
-  "CMakeFiles/3.19.4/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.19.6/CMakeSystem.cmake"
+  "CMakeFiles/3.19.6/CMakeCCompiler.cmake"
+  "CMakeFiles/3.19.6/CMakeCXXCompiler.cmake"
+  "CMakeFiles/3.19.6/CMakeCCompiler.cmake"
+  "CMakeFiles/3.19.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "boot_uf2_headers/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
