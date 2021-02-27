@@ -13,7 +13,7 @@ int main() {
         gpio_put(LED_PIN, 0);
         sleep_ms(50);
         gpio_put(LED_PIN, 1);
-        sleep_ms(50);
+        sleep_ms(2000);
     }
 }
 

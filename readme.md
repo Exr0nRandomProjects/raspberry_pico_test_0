@@ -18,6 +18,8 @@ brew install cmake
 
 Install `cmake`, and `gcc-arm-none-eabi-bin` from the AUR.
 
+Or `raspberry-pico-sdk-git` apparently.
+
 ## Build
 
 Just `make`.
@@ -31,3 +33,6 @@ Unplug, hold BOOTSEL, replug. Then, `sudo picotool info -a`.
 - [detailed engineering analysis of the SDK](https://www.stereorocker.co.uk/2021/02/14/raspberry-pi-pico-displays-fonts-portability/)
 - [tools for reading printf output via usb](https://www.raspberrypi.org/forums/viewtopic.php?t=302227)
 
+<details> <summary>Pastebin</summary>
+`pls mount /dev/sdb1 ~/vol/rpi && pls cp build/my_proj.uf2 ~/vol/rpi && pls umount ~/vol/rpi`
+</details>
