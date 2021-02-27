@@ -1,10 +1,22 @@
 # Raspberry Pico Test
 
-## CLI 
+## CLI
+
+### Toolchain Install
+
+Make sure to clone the [pico-sdk](https://github.com/raspberrypi/pico-sdk) into the parent folder of this one.
+
+Then, install things until building works. Probably need atleast
+```
+brew install --cask gcc-arm-embedded
+brew install cmake
+```
+
+[gcc-arm-embedded trick source](https://gist.github.com/joegoggins/7763637).
 
 ### Build
 
-just `make`
+Then, just `make`.
 
 ### Debug pico
 Unplug, hold BOOTSEL, replug. Then, `sudo picotool info -a`.
