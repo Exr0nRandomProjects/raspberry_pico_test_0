@@ -1,8 +1,8 @@
 # Raspberry Pico Test
 
-## CLI
+## CLI Toolchain Installation
 
-### Toolchain Install
+### MacOS
 
 Make sure to clone the [pico-sdk](https://github.com/raspberrypi/pico-sdk) into the parent folder of this one.
 
@@ -14,11 +14,15 @@ brew install cmake
 
 [gcc-arm-embedded trick source](https://gist.github.com/joegoggins/7763637).
 
-### Build
+### Arch
 
-Then, just `make`.
+Install `cmake`, and `gcc-arm-none-eabi-bin` from the AUR.
 
-### Debug pico
+## Build
+
+Just `make`.
+
+## Debug pico
 Unplug, hold BOOTSEL, replug. Then, `sudo picotool info -a`.
 
 ## Links
