@@ -34,5 +34,7 @@ Unplug, hold BOOTSEL, replug. Then, `sudo picotool info -a`.
 - [tools for reading printf output via usb](https://www.raspberrypi.org/forums/viewtopic.php?t=302227)
 
 <details> <summary>Pastebin</summary>
+
 `pls mount /dev/sdb1 ~/vol/rpi && pls cp build/my_proj.uf2 ~/vol/rpi && pls umount ~/vol/rpi`
+
 </details>
