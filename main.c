@@ -12,8 +12,8 @@ const uint32_t ERROR_FLAG = 127;
 const uint LED_PIN = 25;
 
 const uint SINE_PERIOD = 1e4;  // ms
-const uint MIN_PERIOD = 50;     // ms
-const uint MAX_PERIOD = 500;    // ms
+const uint MIN_PERIOD = 30;     // ms
+const uint MAX_PERIOD = 100;    // ms
 
 void chain_flash(const uint pin, const uint n)
 {   // flash the led n times in succession
@@ -83,8 +83,8 @@ int main() {
 
 // main loop
     while (1) {
-        //printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
-        printf("%c", multicore_fifo_pop_blocking());
+        if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
+        printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
     }
 }
 
