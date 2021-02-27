@@ -14,6 +14,8 @@ add_executable(my_proj
 )
 # Pull in our pico_stdlib which aggregates commonly used features
 target_link_libraries(my_proj pico_stdlib)
+target_link_libraries(my_proj pico_multicore)
+target_link_libraries(my_proj pico_time)
 
 # enable usb output, disable uart output
 pico_enable_stdio_usb(my_proj 1)
