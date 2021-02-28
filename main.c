@@ -83,7 +83,7 @@ void chain_flash(const uint pin, const uint n)
     sleep_ms(450);
 }
 
-double getDelay()
+double getSineDelay()
 {
     const double shift = (double)to_ms_since_boot(get_absolute_time())
         *M_PI*2/SINE_PERIOD;
@@ -107,9 +107,9 @@ void core1_entry()
 // main loop
     while (1) {
         gpio_put(OUTPUT_PIN, 0);
-        sleep_ms(getDelay());
+        sleep_ms(getSineDelay());
         gpio_put(OUTPUT_PIN, 1);
-        sleep_ms(getDelay());
+        sleep_ms(getSineDelay());
         //printf("hello after %lu ms!", );
         //printf("hello world!");
     }
@@ -143,7 +143,7 @@ int main() {
     while (1) {
         if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
         printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
-        display_morse(message, BUILTIN_LED_PIN, 50);
+        display_morse(message, BUILTIN_LED_PIN, 200);
     }
 }
 
