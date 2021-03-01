@@ -24,5 +24,3 @@ pico_enable_stdio_uart(my_proj 0)
 # create map/bin/hex/uf2 file in addition to ELF.
 pico_add_extra_outputs(my_proj)
 
-# add url via pico_set_program_url
-#example_auto_set_url(hello_usb)

@@ -122,6 +122,7 @@ int main() {
 
 // hardware setup
     //setup_default_uart();                                   // enable uart stdout
+    stdio_init_all();
     gpio_init(OUTPUT_PIN);
     gpio_set_dir(OUTPUT_PIN, GPIO_OUT);
     gpio_init(BUILTIN_LED_PIN);
@@ -143,7 +144,7 @@ int main() {
     while (1) {
         if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
         printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
-        display_morse(message, BUILTIN_LED_PIN, 200);
+        //display_morse(message, BUILTIN_LED_PIN, 200);
     }
 }
 
