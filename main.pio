@@ -2,8 +2,7 @@
 .side_set 1                         ; dedicate one of the five timing bits for the pinout value
 
 ; define some constants
-.define public off_period 5
-.define public on_period  5
+.define public delay_unit 10
 
 ; python stuff from the example that "we don't have to worry about"
 /*.lang_opt python sideset_init = pico.PIO.OUT_HIGH15*/
@@ -13,13 +12,18 @@
 .wrap_target
 
 bitloop:
-    out x, 1        side 0 [off_period - 1]     ; set side-set pin to zero, then shift one bit out of OSR into x, then wait off_period - 1 additional cycles
+    out x, 32       side 0 [delay_unit - 1]     ; set side-set pin to zero, then shift one bit out of OSR into x, then wait off_period - 1 additional cycles
     ;                      ^^^^^^^^^^^^^^^^     the delay to wait after this instruction executes
     ;               ^^^^^^                      drive the side-set pin low (0)
     ;      ^                                    number of bits to shift
     ;   ^                                       destination of the shift, one of the two scratch registers (called x and y)
     ;^^                                         out instruction shifts some bits from OSR to a destination, most significant bit first
-    nop             side 1 [on_period -1]
+offwait:
+    jmp X-- offwait side 0 [delay_unit - 1]
+    
+    out x, 32       side 1 [delay_unit - 1]   
+onwait:
+    jmp X-- onwait  side 1 [delay_unit - 1]
 
 .wrap   ; wraps to .wrap_target instantly (zero instructions). prev nop could've been a jump to replace this
 
@@ -32,8 +36,7 @@ static inline void bitbang0_init(
         uint sm,                                                        // which (of four) state machine to use
         uint offset,                                                    // where the program is loaded (in the 5 bit address space, (but TODO actually 4 bc we stole a bit for the output value?))
         uint pin,                                                       // the pin to wiggle
-        float freq,                                                     // 'frequency or baud rate' of the output, whatever that means
-        bool rgbw                                                       // 'true if using 4color LEDs instead of 3' but we don't actually need this one
+        float freq                                                      // 'frequency or baud rate' of the output, whatever that means
     ) {
 
     pio_gpio_init(pio, pin);                                            // init the pin for pio usage
@@ -41,13 +44,13 @@ static inline void bitbang0_init(
 
     pio_sm_config c = bitbang0_program_get_default_config(offset);      // get the default config??????? which we will modify
     sm_config_set_sideset_pins(&c, pin);                                // set the sideset pin. we have .side_set 1 so its only one pin, but with .side_set 3 it would set three pins
-    sm_config_set_out_shift(&c, false, true, rgbw ? 32 : 24);           // configure the out instruction
+    sm_config_set_out_shift(&c, false, true, 32);                       // configure the out instruction
         //                      ^^^^^                                       false for shifting MSB first
         //                             ^^^^                                 true for autopullg MSB first
         //                                   ^^^^^^^^^^^^^^                 autopull trheshhold, aka number of bits (or times out instruction executed) before the OSR register is refilled from the fifo
     sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);                      // HELPPPP not documented in the datasheet
 
-    int cycles_per_bit = bitbang0_off_period + bitbang0_on_period;      // can use constants declared in assembly bc they were declared with `public`
+    int cycles_per_bit = bitbang0_delay_unit;                           // can use constants declared in assembly bc they were declared with `public`
     float div = clock_get_hz(clk_sys) / (freq * cycles_per_bit);        // some math to divide up the clock speed to get the correct bitrate
     sm_config_set_clkdiv(&c, div);                                      // divide the actual clock speed so the state machine ticks once every `div` core clocks
 

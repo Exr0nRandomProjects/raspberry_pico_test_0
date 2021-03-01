@@ -148,10 +148,13 @@ int main() {
     PIO pio = pio0;
     int sm = 0;
     uint offset = pio_add_program(pio, &bitbang0_program);
-    bitbang0_init(pio, sm, offset, OUTPUT_PIN, 0.001, true);
+    bitbang0_init(pio, sm, offset, OUTPUT_PIN, 0.001);
     printf("it worked..?\n");
 
-    pio_sm_put_blocking(pio0, 0, 1<<31);
+    while(1) {
+        pio_sm_put_blocking(pio0, 0, 100);    // ms
+        pio_sm_put_blocking(pio0, 0, 900);    // ms
+    }
 
 // main loop
     char message[] = "hello world.";
@@ -160,7 +163,6 @@ int main() {
         //printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
         //display_morse(message, BUILTIN_LED_PIN, 80);
         pio_sm_put_blocking(pio0, 0, 1<<31);
-        sleep_ms(4000);
     }
 }
 
