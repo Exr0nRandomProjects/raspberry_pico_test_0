@@ -7,12 +7,8 @@
 #include "pico/binary_info.h"
 #include "pico/time.h"
 
-#include "hardware/pio.h"
-#include "hardware/clocks.h"
-#include "main.pio.h"
-
-//const uint32_t HEARTBEAT = 42;
-//const uint32_t ERROR_FLAG = 127;
+const uint32_t HEARTBEAT = 42;
+const uint32_t ERROR_FLAG = 127;
 
 #define BUILTIN_LED_PIN 25
 const uint OUTPUT_PIN = 15;
@@ -87,80 +83,68 @@ void chain_flash(const uint pin, const uint n)
     sleep_ms(450);
 }
 
-//double getSineDelay()
-//{
-//    const double shift = (double)to_ms_since_boot(get_absolute_time())
-//        *M_PI*2/SINE_PERIOD;
-//    return ((sin(shift)+1)/2*(MAX_PERIOD-MIN_PERIOD))+MIN_PERIOD;
-//}
+double getSineDelay()
+{
+    const double shift = (double)to_ms_since_boot(get_absolute_time())
+        *M_PI*2/SINE_PERIOD;
+    return ((sin(shift)+1)/2*(MAX_PERIOD-MIN_PERIOD))+MIN_PERIOD;
+}
 
-//void core1_entry()
-//{
-//    //gpio_init(BUILTIN_LED_PIN);
-//    //gpio_set_dir(BUILTIN_LED_PIN, GPIO_OUT);
-//// send entry signal
-//    chain_flash(BUILTIN_LED_PIN, 2);
-//    multicore_fifo_push_blocking(HEARTBEAT);
-//    chain_flash(BUILTIN_LED_PIN, 3);
-//
-//// recieve entry signal
-//    uint32_t g = multicore_fifo_pop_blocking();
-//    chain_flash(BUILTIN_LED_PIN, 7);
-//    if (g == HEARTBEAT) printf("success!");
-//    else printf("failure!");
-//
-//    sleep_ms(500);
-//// main loop
-//    while (1) {
-//        gpio_put(BUILTIN_LED_PIN, 0);
-//        sleep_ms(getSineDelay());
-//        gpio_put(BUILTIN_LED_PIN, 1);
-//        sleep_ms(getSineDelay());
-//        //printf("hello after %lu ms!", );
-//        //printf("hello world!");
-//    }
-//}
+void core1_entry()
+{
+// send entry signal
+    chain_flash(OUTPUT_PIN, 2);
+    multicore_fifo_push_blocking(HEARTBEAT);
+    chain_flash(OUTPUT_PIN, 3);
+
+// recieve entry signal
+    uint32_t g = multicore_fifo_pop_blocking();
+    chain_flash(OUTPUT_PIN, 7);
+    if (g == HEARTBEAT) printf("success!");
+    else printf("failure!");
+
+    sleep_ms(500);
+// main loop
+    while (1) {
+        gpio_put(OUTPUT_PIN, 0);
+        sleep_ms(getSineDelay());
+        gpio_put(OUTPUT_PIN, 1);
+        sleep_ms(getSineDelay());
+        //printf("hello after %lu ms!", );
+        //printf("hello world!");
+    }
+}
 
 int main() {
 // metadata
     bi_decl(bi_program_description("Sine Blink"));
-    bi_decl(bi_1pin_with_name(BUILTIN_LED_PIN, "On-board LED"));
+    bi_decl(bi_1pin_with_name(OUTPUT_PIN, "On-board LED"));
 
 // hardware setup
     //setup_default_uart();                                   // enable uart stdout
     stdio_init_all();
+    gpio_init(OUTPUT_PIN);
+    gpio_set_dir(OUTPUT_PIN, GPIO_OUT);
     gpio_init(BUILTIN_LED_PIN);
     gpio_set_dir(BUILTIN_LED_PIN, GPIO_OUT);
 
-//// multicore setup
-//    chain_flash(BUILTIN_LED_PIN, 1);
-//    multicore_launch_core1(core1_entry);
-//
-//    uint32_t g = multicore_fifo_pop_blocking();
-//    chain_flash(BUILTIN_LED_PIN, 4);
-//    if (g != HEARTBEAT) return printf("Multicore launch failed\n"), 1;
-//    chain_flash(BUILTIN_LED_PIN, 5);
-//    multicore_fifo_push_blocking(HEARTBEAT);
-//    chain_flash(BUILTIN_LED_PIN, 6);
+// multicore setup
+    chain_flash(OUTPUT_PIN, 1);
+    multicore_launch_core1(core1_entry);
 
-    // pio init
-    printf("starting state machine...\n");
-    PIO pio = pio0;
-    int sm = 0;
-    uint offset = pio_add_program(pio, &bitbang0_program);
-    bitbang0_init(pio, sm, offset, OUTPUT_PIN, 0.001, true);
-    printf("it worked..?\n");
-
-    pio_sm_put_blocking(pio0, 0, 1<<31);
+    uint32_t g = multicore_fifo_pop_blocking();
+    chain_flash(OUTPUT_PIN, 4);
+    if (g != HEARTBEAT) return printf("Multicore launch failed\n"), 1;
+    chain_flash(OUTPUT_PIN, 5);
+    multicore_fifo_push_blocking(HEARTBEAT);
+    chain_flash(OUTPUT_PIN, 6);
 
 // main loop
     char message[] = "hello world.";
     while (1) {
-        //if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
-        //printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
-        //display_morse(message, BUILTIN_LED_PIN, 80);
-        pio_sm_put_blocking(pio0, 0, 1<<31);
-        sleep_ms(4000);
+        if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
+        printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
+        //display_morse(message, BUILTIN_LED_PIN, 200);
     }
 }
 

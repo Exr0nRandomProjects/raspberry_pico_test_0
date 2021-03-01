@@ -1,0 +1,57 @@
+.program bitbang0                   ; define program name
+.side_set 1                         ; dedicate one of the five timing bits for the pinout value
+
+; define some constants
+.define public off_period 5
+.define public on_period  5
+
+; python stuff from the example that "we don't have to worry about"
+/*.lang_opt python sideset_init = pico.PIO.OUT_HIGH15*/
+/*.lang_opt python out_init     = pico.PIO.OUT_HIGH16*/
+/*.lang_opt python out_shiftdir = 1*/
+
+.wrap_target
+
+bitloop:
+    out x, 1        side 0 [off_period - 1]     ; set side-set pin to zero, then shift one bit out of OSR into x, then wait off_period - 1 additional cycles
+    ;                      ^^^^^^^^^^^^^^^^     the delay to wait after this instruction executes
+    ;               ^^^^^^                      drive the side-set pin low (0)
+    ;      ^                                    number of bits to shift
+    ;   ^                                       destination of the shift, one of the two scratch registers (called x and y)
+    ;^^                                         out instruction shifts some bits from OSR to a destination, most significant bit first
+    nop             side 1 [on_period -1]
+
+.wrap   ; wraps to .wrap_target instantly (zero instructions). prev nop could've been a jump to replace this
+
+% c-sdk {
+// yoinked from https://github.com/raspberrypi/pico-examples/blob/master/pio/ws2812/ws2812.pio#L31-L47 and https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-c-sdk.pdfpg 41
+#include "hardware/clocks.h"
+
+static inline void bitbang0_init(
+        PIO pio,                                                        // which of the two PIO instances we are using
+        uint sm,                                                        // which (of four) state machine to use
+        uint offset,                                                    // where the program is loaded (in the 5 bit address space, (but TODO actually 4 bc we stole a bit for the output value?))
+        uint pin,                                                       // the pin to wiggle
+        float freq,                                                     // 'frequency or baud rate' of the output, whatever that means
+        bool rgbw                                                       // 'true if using 4color LEDs instead of 3' but we don't actually need this one
+    ) {
+
+    pio_gpio_init(pio, pin);                                            // init the pin for pio usage
+    pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);              // set a range (of length one, aka one pin) to be output
+
+    pio_sm_config c = bitbang0_program_get_default_config(offset);      // get the default config??????? which we will modify
+    sm_config_set_sideset_pins(&c, pin);                                // set the sideset pin. we have .side_set 1 so its only one pin, but with .side_set 3 it would set three pins
+    sm_config_set_out_shift(&c, false, true, rgbw ? 32 : 24);           // configure the out instruction
+        //                      ^^^^^                                       false for shifting MSB first
+        //                             ^^^^                                 true for autopullg MSB first
+        //                                   ^^^^^^^^^^^^^^                 autopull trheshhold, aka number of bits (or times out instruction executed) before the OSR register is refilled from the fifo
+    sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);                      // HELPPPP not documented in the datasheet
+
+    int cycles_per_bit = bitbang0_off_period + bitbang0_on_period;      // can use constants declared in assembly bc they were declared with `public`
+    float div = clock_get_hz(clk_sys) / (freq * cycles_per_bit);        // some math to divide up the clock speed to get the correct bitrate
+    sm_config_set_clkdiv(&c, div);                                      // divide the actual clock speed so the state machine ticks once every `div` core clocks
+
+    pio_sm_init(pio, sm, offset, &c);                                   // load config into state machine and go to the start adress
+    pio_sm_set_enabled(pio, sm, true);                                  // launch!
+}
+%}
