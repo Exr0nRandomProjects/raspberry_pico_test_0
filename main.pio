@@ -3,29 +3,29 @@
 
 ; define some constants
 .define public delay_unit 10
+.define public on_ticks   10
 
 ; python stuff from the example that "we don't have to worry about"
 /*.lang_opt python sideset_init = pico.PIO.OUT_HIGH15*/
 /*.lang_opt python out_init     = pico.PIO.OUT_HIGH16*/
 /*.lang_opt python out_shiftdir = 1*/
 
-.wrap_target
+// each cycle runs for delay_unit * fifo_value + 2 instructions
+getvalue:
+    out y, 32           side 0  [0]
 
 bitloop:
-    out x, 32       side 0 [delay_unit - 1]     ; set side-set pin to zero, then shift one bit out of OSR into x, then wait off_period - 1 additional cycles
-    ;                      ^^^^^^^^^^^^^^^^     the delay to wait after this instruction executes
-    ;               ^^^^^^                      drive the side-set pin low (0)
-    ;      ^                                    number of bits to shift
-    ;   ^                                       destination of the shift, one of the two scratch registers (called x and y)
-    ;^^                                         out instruction shifts some bits from OSR to a destination, most significant bit first
-offwait:
-    jmp X-- offwait side 0 [delay_unit - 1]
-    
-    out x, 32       side 1 [delay_unit - 1]   
-onwait:
-    jmp X-- onwait  side 1 [delay_unit - 1]
 
-.wrap   ; wraps to .wrap_target instantly (zero instructions). prev nop could've been a jump to replace this
+    mov x, y            side 0  [0]
+offwait:
+    jmp x-- offwait     side 0  [delay_unit - 1]
+
+    mov x, y            side 1  [0]
+onwait:
+    jmp x-- onwait      side 1  [delay_unit - 1]
+
+    jmp !OSRE getvalue  side 1  [0]
+    jmp bitloop         side 0  [0]
 
 % c-sdk {
 // yoinked from https://github.com/raspberrypi/pico-examples/blob/master/pio/ws2812/ws2812.pio#L31-L47 and https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-c-sdk.pdfpg 41
@@ -47,7 +47,7 @@ static inline void bitbang0_init(
     sm_config_set_out_shift(&c, false, true, 32);                       // configure the out instruction
         //                      ^^^^^                                       false for shifting MSB first
         //                             ^^^^                                 true for autopullg MSB first
-        //                                   ^^^^^^^^^^^^^^                 autopull trheshhold, aka number of bits (or times out instruction executed) before the OSR register is refilled from the fifo
+        //                                   ^^                             autopull trheshhold, aka number of bits before the OSR register is refilled from the fifo
     sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);                      // HELPPPP not documented in the datasheet
 
     int cycles_per_bit = bitbang0_delay_unit;                           // can use constants declared in assembly bc they were declared with `public`
