@@ -12,20 +12,20 @@
 
 // each cycle runs for delay_unit * fifo_value + 2 instructions
 getvalue:
-    out y, 32           side 0  [0]
+    out y, 32           side 0
 
 bitloop:
 
-    mov x, y            side 0  [0]
+    mov x, y            side 0
 offwait:
     jmp x-- offwait     side 0  [delay_unit - 1]
 
-    mov x, y            side 1  [0]
+    mov x, y            side 1
 onwait:
     jmp x-- onwait      side 1  [delay_unit - 1]
 
-    jmp !OSRE getvalue  side 1  [0]
-    jmp bitloop         side 0  [0]
+    jmp !OSRE getvalue  side 1
+    jmp bitloop         side 0
 
 % c-sdk {
 // yoinked from https://github.com/raspberrypi/pico-examples/blob/master/pio/ws2812/ws2812.pio#L31-L47 and https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-c-sdk.pdfpg 41
