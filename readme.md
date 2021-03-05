@@ -35,6 +35,6 @@ Unplug, hold BOOTSEL, replug. Then, `sudo picotool info -a`.
 
 <details> <summary>Pastebin</summary>
 
-`pls mount /dev/sdb1 ~/vol/rpi && pls cp build/my_proj.uf2 ~/vol/rpi && pls umount ~/vol/rpi`
+pls mount /dev/sdb1 ~/vol/rpi && pls cp build/my_proj.uf2 ~/vol/rpi && pls umount ~/vol/rpi
 
 </details>

@@ -2,8 +2,7 @@
 .side_set 1                         ; dedicate one of the five timing bits for the pinout value
 
 ; define some constants
-.define public delay_unit 10
-.define public on_ticks   10
+.define public delay_unit 1
 
 ; python stuff from the example that "we don't have to worry about"
 /*.lang_opt python sideset_init = pico.PIO.OUT_HIGH15*/
@@ -11,21 +10,21 @@
 /*.lang_opt python out_shiftdir = 1*/
 
 // each cycle runs for delay_unit * fifo_value + 2 instructions
-getvalue:
-    out y, 32           side 0
 
-bitloop:
+.wrap_target
 
-    mov x, y            side 0
+main:
+    pull noblock        side 1
+    out x, 32           side 0
+
+    mov y, x            side 0
 offwait:
-    jmp x-- offwait     side 0  [delay_unit - 1]
+    jmp y-- offwait     side 0  [delay_unit - 1]
 
-    mov x, y            side 1
+    mov y, x            side 1
 onwait:
-    jmp x-- onwait      side 1  [delay_unit - 1]
-
-    jmp !OSRE getvalue  side 1
-    jmp bitloop         side 0
+    jmp y-- onwait      side 1  [delay_unit - 1]
+.wrap
 
 % c-sdk {
 // yoinked from https://github.com/raspberrypi/pico-examples/blob/master/pio/ws2812/ws2812.pio#L31-L47 and https://datasheets.raspberrypi.org/pico/raspberry-pi-pico-c-sdk.pdfpg 41
@@ -44,7 +43,7 @@ static inline void bitbang0_init(
 
     pio_sm_config c = bitbang0_program_get_default_config(offset);      // get the default config??????? which we will modify
     sm_config_set_sideset_pins(&c, pin);                                // set the sideset pin. we have .side_set 1 so its only one pin, but with .side_set 3 it would set three pins
-    sm_config_set_out_shift(&c, false, true, 32);                       // configure the out instruction
+    //sm_config_set_out_shift(&c, false, true, 32);                       // configure the out instruction
         //                      ^^^^^                                       false for shifting MSB first
         //                             ^^^^                                 true for autopullg MSB first
         //                                   ^^                             autopull trheshhold, aka number of bits before the OSR register is refilled from the fifo

@@ -150,9 +150,11 @@ int main() {
     uint offset = pio_add_program(pio, &bitbang0_program);
     bitbang0_init(pio, sm, offset, OUTPUT_PIN, 1);
 
-    pio_sm_put_blocking(pio0, 0, 1e2);
-    while (1) {
-        printf("value is %x\n", pio_sm_get(pio0, 0));
+    while(1) {
+        pio_sm_put_blocking(pio0, 0, 1e2);
+        sleep_ms(1e4);
+        pio_sm_put_blocking(pio0, 0, 1e3);
+        sleep_ms(1e4);
     }
     //while(1) {
     //    pio_sm_put_blocking(pio0, 0, 1e2);    // ms
