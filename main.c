@@ -129,12 +129,14 @@ void chain_flash(const uint pin, const uint n)
 //}
 
 double CLOCK_FREQ = -1;
+const double DRIVE_FACTOR = STEPS_PER_ROTATION*BELT_RATIO;
 int set_rpm(const PIO pio, const uint sm, const double rpm)
 {
-    if (CLOCK_FREQ < 0) CLOCK_FREQ = pio_clock_freq();
-    double ans = 30/rpm * CLOCK_FREQ/bitbang0_clock_divisor * MICROSTEP / STEPS_PER_ROTATION/BELT_RATIO;
-    if (ans < bitbang0_upkeep_instruction_count) return 1; // too fast, not possible
-    printf("Setting output to %u tps (%lf rpm)\n", (unsigned)ans, (double)1.0/(unsigned)ans *BELT_RATIO*STEPS_PER_ROTATION/MICROSTEP*bitbang0_clock_divisor/CLOCK_FREQ/30);
+    if (CLOCK_FREQ < 0) CLOCK_FREQ = pio_clock_freq()/bitbang0_clock_divisor;
+    double ans = 30/rpm *CLOCK_FREQ*MICROSTEP/DRIVE_FACTOR;
+    if (ans < bitbang0_upkeep_instruction_count) return 1;  // too fast, not possible
+    if (ans > 1e6) return 2;                                // too slow, disallow
+    printf("       Settting output to %u ipt (%.2lf tps %.2lf rpm)\r", (unsigned)ans, CLOCK_FREQ/(unsigned)ans/2, (double)30/((unsigned)ans)*CLOCK_FREQ*MICROSTEP/DRIVE_FACTOR);
     pio_sm_put_blocking(pio, sm, (unsigned)ans-bitbang0_upkeep_instruction_count);
 }
 
@@ -142,19 +144,22 @@ double TARGET_RPM = 0.1;
 void ramp(const PIO pio, const uint sm, const double to,
           const double seconds, const double resolution)
 {
-    const double start_ms = get_absolute_time();
-    double elapsed = 0;
-    while (elapsed - start_ms < seconds*1e3) {
+    printf("Ramping to target %lf RPM over %lf seconds...                    \n", to, seconds);
+    const double start_ms = to_ms_since_boot(get_absolute_time());
+    double cur_ms; unsigned prev=0;
+    do {
+        cur_ms = to_ms_since_boot(get_absolute_time());
         // y=\frac{\left(\left(a-b\right)\cos\left(\frac{x\pi}{t}\right)+a+b\right)}{2}
         // where a = src, b = dst, t = len
-        elapsed = get_absolute_time() - start_ms;
-        printf("elapsed = %lf\n", elapsed);
-        double inter = ((TARGET_RPM-to)*cos(elapsed*M_PI/seconds) + TARGET_RPM + to) / 2;
-        set_rpm(pio, sm, inter);
-    }
+        double inter = ((TARGET_RPM-to)*cos((cur_ms-start_ms)/1e3*M_PI/seconds) + TARGET_RPM + to) / 2;
+        if ((unsigned)inter != prev) set_rpm(pio, sm, inter);    // TODO: delayed due to queue, should calculate how much time will elapse before next and push based on that
+    } while (cur_ms - start_ms < seconds*1e3);
     set_rpm(pio, sm, TARGET_RPM = to);
+    printf("Target RPM %lf reached.                                          \n", TARGET_RPM);
 }
 
+char buf[64];
+double arg;
 int main() {
 // metadata
     bi_decl(bi_program_description("Sine Blink"));
@@ -184,14 +189,14 @@ int main() {
     uint offset = pio_add_program(pio, &bitbang0_program);
     bitbang0_init(pio, sm, offset, OUTPUT_PIN, 1);
 
-    for (int i=1; i<=10; ++i) printf("printf???\n");
-
-    ramp(pio, sm, 140, 10, 0.1);
+    set_rpm(pio, sm, TARGET_RPM = 240);
+    ramp(pio, sm, 480, 10, 0.1);
+// main loop
     while (1) {
-        char buf[64];
-        double arg;
+        memset(buf, 0, sizeof buf); arg = 0;
         scanf("%s %lf", buf, &arg);
         printf("got '%s' and %lf\n", buf, arg);
+        if (!strcmp(buf, "set")) ramp(pio, sm, arg, 10, 0.1);
     }
 
     //set_rpm(pio, sm, 60);
@@ -202,13 +207,12 @@ int main() {
     //    sleep_ms(1e4);
     //}
 
-// main loop
     //char message[] = "hello world.";
-    while (1) {
-        //if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
-        //printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
-        //display_morse(message, BUILTIN_LED_PIN, 80);
-        pio_sm_put_blocking(pio0, 0, 1<<31);
-    }
+    //while (1) {
+    //    //if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
+    //    //printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
+    //    //display_morse(message, BUILTIN_LED_PIN, 80);
+    //    //pio_sm_put_blocking(pio0, 0, 1<<31);
+    //}
 }
 
