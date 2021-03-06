@@ -14,6 +14,13 @@
 //const uint32_t HEARTBEAT = 42;
 //const uint32_t ERROR_FLAG = 127;
 
+uint MICROSTEP = 1; // 1 or 4 or 8
+const uint STEPS_PER_ROTATION = 1;
+const double BELT_RATIO = 1;
+//uint MICROSTEP = 8; // 1 or 4 or 8
+//const uint STEPS_PER_ROTATION = 400;
+//const double BELT_RATIO = 4;    // TODO diameter hub / diameter stepper
+
 #define BUILTIN_LED_PIN 25
 const uint OUTPUT_PIN = 15;
 
@@ -121,6 +128,33 @@ void chain_flash(const uint pin, const uint n)
 //    }
 //}
 
+double CLOCK_FREQ = -1;
+int set_rpm(const PIO pio, const uint sm, const double rpm)
+{
+    if (CLOCK_FREQ < 0) CLOCK_FREQ = pio_clock_freq();
+    double ans = 30/rpm * CLOCK_FREQ/bitbang0_clock_divisor * MICROSTEP / STEPS_PER_ROTATION/BELT_RATIO;
+    if (ans < bitbang0_upkeep_instruction_count) return 1; // too fast, not possible
+    printf("Setting output to %u tps (%lf rpm)\n", (unsigned)ans, (double)1.0/(unsigned)ans *BELT_RATIO*STEPS_PER_ROTATION/MICROSTEP*bitbang0_clock_divisor/CLOCK_FREQ/30);
+    pio_sm_put_blocking(pio, sm, (unsigned)ans-bitbang0_upkeep_instruction_count);
+}
+
+double TARGET_RPM = 0.1;
+void ramp(const PIO pio, const uint sm, const double to,
+          const double seconds, const double resolution)
+{
+    const double start_ms = get_absolute_time();
+    double elapsed = 0;
+    while (elapsed - start_ms < seconds*1e3) {
+        // y=\frac{\left(\left(a-b\right)\cos\left(\frac{x\pi}{t}\right)+a+b\right)}{2}
+        // where a = src, b = dst, t = len
+        elapsed = get_absolute_time() - start_ms;
+        printf("elapsed = %lf\n", elapsed);
+        double inter = ((TARGET_RPM-to)*cos(elapsed*M_PI/seconds) + TARGET_RPM + to) / 2;
+        set_rpm(pio, sm, inter);
+    }
+    set_rpm(pio, sm, TARGET_RPM = to);
+}
+
 int main() {
 // metadata
     bi_decl(bi_program_description("Sine Blink"));
@@ -150,19 +184,26 @@ int main() {
     uint offset = pio_add_program(pio, &bitbang0_program);
     bitbang0_init(pio, sm, offset, OUTPUT_PIN, 1);
 
-    while(1) {
-        pio_sm_put_blocking(pio0, 0, 1e2);
-        sleep_ms(1e4);
-        pio_sm_put_blocking(pio0, 0, 1e3);
-        sleep_ms(1e4);
+    for (int i=1; i<=10; ++i) printf("printf???\n");
+
+    ramp(pio, sm, 140, 10, 0.1);
+    while (1) {
+        char buf[64];
+        double arg;
+        scanf("%s %lf", buf, &arg);
+        printf("got '%s' and %lf\n", buf, arg);
     }
+
+    //set_rpm(pio, sm, 60);
     //while(1) {
-    //    pio_sm_put_blocking(pio0, 0, 1e2);    // ms
-    //    pio_sm_put_blocking(pio0, 0, 9e2);    // ms
+    //    pio_sm_put_blocking(pio0, 0, 1e2);
+    //    sleep_ms(1e4);
+    //    pio_sm_put_blocking(pio0, 0, 1e3);
+    //    sleep_ms(1e4);
     //}
 
 // main loop
-    char message[] = "hello world.";
+    //char message[] = "hello world.";
     while (1) {
         //if (multicore_fifo_rvalid()) printf("%c", multicore_fifo_pop_blocking());
         //printf("running for %lu ms\n", to_ms_since_boot(get_absolute_time()));
