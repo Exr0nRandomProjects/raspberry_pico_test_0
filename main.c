@@ -11,12 +11,12 @@
 #include "hardware/clocks.h"
 #include "main.pio.h"
 
-uint MICROSTEP = 1; // 1 or 4 or 8
-const uint STEPS_PER_ROTATION = 1;
-const double BELT_RATIO = 1;
-//uint MICROSTEP = 8; // 1 or 4 or 8
-//const uint STEPS_PER_ROTATION = 400;
-//const double BELT_RATIO = 4;    // TODO diameter hub / diameter stepper
+//uint MICROSTEP = 1; // 1 or 4 or 8
+//const uint STEPS_PER_ROTATION = 1;
+//const double BELT_RATIO = 1;
+uint MICROSTEP = 8; // 1 or 4 or 8
+const uint STEPS_PER_ROTATION = 200;
+const double BELT_RATIO = 100/7;    // TODO diameter hub / diameter stepper
 
 #define BUILTIN_LED_PIN 25
 const uint OUTPUT_PIN = 15;
@@ -65,13 +65,13 @@ double set_rpm(const PIO pio, const uint sm, const double rpm)
     if (ans < bitbang0_upkeep_instruction_count) return -1; // too fast, not possible
     if (ans > 1e6) return -1;                               // too slow, disallow
     const double reached = (double)30/((unsigned)ans)*CLOCK_FREQ*MICROSTEP/DRIVE_FACTOR;
-    //printf("set %u ipt (%.2lf tps %.2lf rpm)\r", (unsigned)ans, CLOCK_FREQ/(unsigned)ans/2, reached);
-    printf("set %.2lftps %.2lfrpm\r", CLOCK_FREQ/(unsigned)ans/2, reached);
+    printf(" %uipt %.2lftps %.2lfrpm)\r", (unsigned)ans, CLOCK_FREQ/(unsigned)ans/2, reached);
+    //printf("set %.2lftps %.2lfrpm\r", CLOCK_FREQ/(unsigned)ans/2, reached);
     pio_sm_put_blocking(pio, sm, (unsigned)ans-bitbang0_upkeep_instruction_count);
     return reached;
 }
 
-double TARGET_RPM = 0.1;
+double TARGET_RPM = 0.01;
 void ramp(const PIO pio, const uint sm, const double to, const double seconds)
 {
     //printf("Ramping to target %.2lf RPM over %.2lf seconds...\n", to, seconds);
@@ -116,7 +116,7 @@ int main() {
 
 
 // main loop
-    set_rpm(pio, sm, TARGET_RPM = 240); ramp(pio, sm, 480, 3); // TODO FOR LED TESTING ONLY: remove when using stepper
+    //set_rpm(pio, sm, TARGET_RPM = 240); ramp(pio, sm, 480, 3); // TODO FOR LED TESTING ONLY: remove when using stepper
     while (1) {
         memset(buf, 0, sizeof buf); arg = 0;
         scanf("%s %lf", buf, &arg);
