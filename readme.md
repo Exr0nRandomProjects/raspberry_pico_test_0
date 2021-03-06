@@ -1,5 +1,23 @@
 # Raspberry Pico Test
 
+## Usage
+
+Copy a `.uf2` file from the `releases` folder to your Raspberry Pi Pico to get running.
+
+To send commands, install `minicom` (`brew`/`apt`/`AUR`) and run `$ sudo minicom -b 115200 -o -D /dev/ttyACM0`.
+
+### Available Commands
+
+| Command       | Description         |
+|---------------|---------------------|
+| `set <float>` | Set the target RPM. |
+
+Minicom does not display what you are typing as you type it, so just type the full command and press enter.
+
+### Indicators
+
+The Pico's onboard LED will flash when processing a command and stay solid when ready for the next one.
+
 ## CLI Toolchain Installation
 
 ### MacOS
