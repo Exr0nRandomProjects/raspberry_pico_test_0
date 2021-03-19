@@ -56,8 +56,15 @@ void print_progbar(const uint len, const double lo, const double hi, const doubl
     printf("| %.2lf ", hi);
 }
 
+uint elapsed() {
+    return to_ms_since_boot(get_absolute_time());
+}
+
 double CLOCK_FREQ = -1;
 const double DRIVE_FACTOR = STEPS_PER_ROTATION*BELT_RATIO;
+double calc_delay_time(const double rpm)
+{
+}
 double set_rpm(const PIO pio, const uint sm, const double rpm)
 {
     if (CLOCK_FREQ < 0) CLOCK_FREQ = pio_clock_freq()/bitbang0_clock_divisor;
@@ -76,16 +83,17 @@ void ramp(const PIO pio, const uint sm, const double to, const double seconds)
 {
     //printf("Ramping to target %.2lf RPM over %.2lf seconds...\n", to, seconds);
     multicore_fifo_push_blocking(CORECOM_FLASH);
-    const double start_ms = to_ms_since_boot(get_absolute_time());
+    const double start_ms = elapsed();
     double cur_ms; unsigned prev=0;
     do {
-        cur_ms = to_ms_since_boot(get_absolute_time());
+        cur_ms = elapsed();
         // y=\frac{\left(\left(a-b\right)\cos\left(\frac{x\pi}{t}\right)+a+b\right)}{2}
         // where a = src, b = dst, t = len
         double inter = ((TARGET_RPM-to)*cos((cur_ms-start_ms)/1e3*M_PI/seconds) + TARGET_RPM + to) / 2;
         if ((unsigned)inter != prev) {
             print_progbar(50, fmin(TARGET_RPM, to), fmax(TARGET_RPM, to), (inter-fmin(to, TARGET_RPM))/fabs(to-TARGET_RPM), (cur_ms - start_ms)/seconds/1e3);
             set_rpm(pio, sm, inter);    // TODO: delayed due to queue, should calculate how much time will elapse before next and push based on that
+            sleep_ms(inter-elapsed()+cur_ms-1);
         }
     } while (cur_ms - start_ms < seconds*1e3);
     const double reached = set_rpm(pio, sm, TARGET_RPM = to);
