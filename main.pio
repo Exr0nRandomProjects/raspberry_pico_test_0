@@ -3,7 +3,8 @@
 
 ; define some constants
 .define public upkeep_instruction_count 4
-.define public clock_divisor            1000
+/*.define public clock_divisor            1000*/
+.define public clock_divisor            10
 
 ; python stuff from the example that "we don't have to worry about"
 /*.lang_opt python sideset_init = pico.PIO.OUT_HIGH15*/

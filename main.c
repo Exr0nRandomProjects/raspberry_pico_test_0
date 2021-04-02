@@ -11,12 +11,14 @@
 #include "hardware/clocks.h"
 #include "main.pio.h"
 
-uint MICROSTEP = 1; // 1 or 4 or 8
-const uint STEPS_PER_ROTATION = 1;
+//uint MICROSTEP = 1; // 1 or 4 or 8
+//const uint STEPS_PER_ROTATION = 1;
 const double BELT_RATIO = 1;
-//uint MICROSTEP = 8; // 1 or 4 or 8
-//const uint STEPS_PER_ROTATION = 200;
+uint MICROSTEP = 32; // 1 or 4 or 8
+const uint STEPS_PER_ROTATION = 200;
 //const double BELT_RATIO = 100/7;    // TODO diameter hub / diameter stepper
+
+const uint MAX_RPM = 300;
 
 #define BUILTIN_LED_PIN 25
 const uint OUTPUT_PIN = 15;
@@ -48,16 +50,15 @@ double CLOCK_FREQ = -1;
 const double DRIVE_FACTOR = STEPS_PER_ROTATION*BELT_RATIO;
 double calc_delay_time(const double rpm)
 {
-	return 30/rpm * MICROSTEP/DRIVE_FACTOR;
+	return 30/rpm / MICROSTEP/DRIVE_FACTOR;
 }
 double set_rpm(const PIO pio, const uint sm, const double rpm)
 {
     if (CLOCK_FREQ < 0) CLOCK_FREQ = pio_clock_freq()/bitbang0_clock_divisor;
-    /* double ans = 30/rpm *CLOCK_FREQ*MICROSTEP/DRIVE_FACTOR; */
 	double ans = calc_delay_time(rpm)*CLOCK_FREQ;
     if (ans < bitbang0_upkeep_instruction_count) return -1; // too fast, not possible
     if (ans > 1e6) return -1;                               // too slow, disallow TODO: change condition
-    const double reached = (double)30/((unsigned)ans)*CLOCK_FREQ*MICROSTEP/DRIVE_FACTOR;
+    const double reached = (double)30/((unsigned)ans)*CLOCK_FREQ/MICROSTEP/DRIVE_FACTOR;
     printf(" %uipt %.2lftps %.2lfrpm)\r", (unsigned)ans, CLOCK_FREQ/(unsigned)ans/2, reached);
     //printf("set %.2lftps %.2lfrpm\r", CLOCK_FREQ/(unsigned)ans/2, reached);
     pio_sm_put_blocking(pio, sm, (unsigned)ans-bitbang0_upkeep_instruction_count);
@@ -76,8 +77,7 @@ void ramp(const PIO pio, const uint sm, const double to, const double seconds)
         // y=\frac{\left(\left(a-b\right)\cos\left(\frac{x\pi}{t}\right)+a+b\right)}{2}
         // where a = src, b = dst, t = len
         double inter = ((TARGET_RPM-to)*cos((cur_ms-start_ms)/1e3*M_PI/seconds) + TARGET_RPM + to) / 2;
-        printf("inter %lf, delay %lf\n\n", inter, calc_delay_time(inter));
-        if (calc_delay_time(inter) > 0.2) {                    // set max absolute tick delay to 0.2 seconds
+        if (calc_delay_time(inter) > 0.5) {                    // set max absolute tick delay to 0.5 seconds
 	        if (to > TARGET_RPM) continue;
 	        else {
 		        printf("!! Target RPM %.2lf too slow! Stopping at %lf RPM !!\n\n", to, inter);
