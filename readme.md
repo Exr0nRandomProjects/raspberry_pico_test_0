@@ -1,5 +1,8 @@
 # Raspberry Pico Test
 
+## Archived
+Testing complete! See the [final repo](https://github.com/exr0nprojects/wavetable_pico) :heart:
+
 ## Usage
 
 Copy a `.uf2` file from the `releases` folder to your Raspberry Pi Pico to get running.
